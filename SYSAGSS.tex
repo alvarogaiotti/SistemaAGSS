@@ -2947,7 +2947,15 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
     3\BC\ \textregistered\ dopo 1\BH-2\BC/\BD-2SA (ma solo con eventuale fit 3°), altrimenti con fit 4° si dich.
     direttamente 3\BH\ senza fare ® a 3\BC
 
-    Quando apertore mostra un bicolore e il rispondente dichiara 2SA (\textregistered\ senza fit nel colore di apertura), sulle risposte di 3\BC\ e 3\BD\ il secondo gradino mostra sempre fit 4° nel secondo colore (quindi il relay lo nega).
+    Quando apertore mostra un bicolore e il rispondente dichiara 2SA
+    (\textregistered\ senza fit nel colore di apertura), sulle risposte di
+    3\BC\ e 3\BD\ il secondo gradino mostra sempre fit 4° nel secondo colore
+    (quindi il relay lo nega).
+
+    Notare che sulla sequenza 1\BH--2\BC/\BD--2\BH--2SA--3\BC\ (5+\BH4+\BS\ min
+    non 3\BC/\BD\ se non 10 carte) con il fit a \BS\ non da slam è necessario
+    dichiarare 3\BH\ per fissare le \BS, altrimenti se sul relay 3\BD\
+    l'apertore mostra la 6\BH4\BS3\BC/\BD\ non è possibile fare signoff a 4\BS.
 
 \end{varie}
 \newpage
@@ -3544,15 +3552,14 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BH \> 5\BS 5\BH \\
         3\BS \> 6\BS 4\BH \\
         3SA \> 5\BS 4\BH , riapertura si gioca a \BH \\
-        4\BC \> 6\BS 4\BH 3\BC \+\\
-        4\BH \> SO\\
-        4\BD \> Fit \BS\ o \BH \+\\
-        4\BH \> Obbl\+\\
-        4\BS \> ISL NF \BS \\
-        4SA \> RKCB \BH \\
-        5X \> Cue \BS \-\-\\
-        4\BS \> Fit \BC \\
-        5\BC \> SO\-\-\\
+        4\BC \> 5\BS5\BH3\BC \+\\
+        4\BD \> Fit \BH\\
+        4SA \> Fit \BC\\
+        4/5X \> SO\-\\
+        4\BD \> 6\BS 4\BH 3\BC\+\\
+        4\BH \> Fit \BS\\
+        4\BS/5\BC \> SO\\
+        4SA \> Fit \BC\-\-\\
         3\BH \> 4\BH\ no SGL o forte\-\\
         3\BD \> 3\BC \+\\
         3\BH \> Relay\+\\
@@ -3656,14 +3663,14 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BD \> Relay\+\\
         3\BH \> 5\BS 5\BH \\
         3\BS \> 6\BS 4\BH \\
-        3SA \> 5\BS 4\BH , si gioca \BH \\
+        3SA \> 5\BS 4\BH , si gioca a \BH \\
         4\BC \> 5\BS5\BH3\BD \+\\
         4X \> Fit \BH\\
         4\BD \> Fit \BD\-\\
         4\BD \> 6\BS 4\BH 3\BD\+\\
         4\BH \> Fit \BS\\
         4\BS/5\BD \> SO\\
-        4/5X \> Fit \BD\-\-\\
+        4/5X \> Fit \BD\ assi P/D\-\-\\
         3\BH \> 4\BH\ no SGL o forte\-\\
         3\BD \> 3\BD \+\\
         3\BH \> Relay\+\\
@@ -3676,7 +3683,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3/4X \> Vedi 3\BC\ ma max\-\\
         3\BC \> 4° colore o 5\BC 5\BD . Riapertura a 4\BC\ è 5/5\\
         3\BD \> 6+\BD\ no fit\+\\
-        3\BH \> Anche non 5o senza stop \BC\-\\
+        3\BH \> 5\BS5\BH\ o 5\BS4\BH\ no stop \BC\ $\Rightarrow$3\BS\ waiting\-\\
         3\BH \> Fit \BH\ Sgl \BC\\
         3\BS \> Fit \BH\ Sgl \BS\-\\
     \end{bidtable}
@@ -3692,6 +3699,10 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
 
         Quando apertore mostra un bicolore e il rispondente dichiara 2SA (\textregistered\ senza fit nel colore di apertura), sulle risposte di 3\BC\ e 3\BD\ il secondo gradino mostra sempre fit 4° nel secondo colore (quindi il relay lo nega).
 
+    Notare che sulla sequenza 1\BS--2\BC/\BD--2\BH--2SA--3\BC\ (5+\BS4+\BH\ min
+    non 3\BC/\BD\ se non 10 carte) con il fit a \BH\ non da slam è necessario
+    dichiarare 3\BH\ per fissare le \BH, altrimenti se sul relay 3\BD\
+    l'apertore mostra la 6\BS4\BH3\BC/\BD\ non è possibile giocare a \BH.
     \end{varie}
     \columnbreak
     \begin{bidtable}
