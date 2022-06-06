@@ -3162,7 +3162,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3SA \> 5332 stop \BC \\
         4\BC \> 6\BH 4\BS \-\\
         3\BD \> 5\BS\ no 4\BD \\
-        3\BH \> 6+\BD\ 8-10\\
+        3\BH \> 6+\BD\ 8-10 $\Rightarrow$ 3\BS\ = 6+\BH\\
         3\BS \> 5\BS 5\BD\ 8-10\\
         3SA \> Nat\-\\
         3\BC \> 6+\BH\ colore imposto\\
@@ -3217,7 +3217,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3SA \> 5332 stop \BD \\
         4\BC \> 6\BH 4\BS \-\\
         3\BD \> 5\BS\ no 4\BC \\
-        3\BH \> 6+\BC\ 8-10\\
+        3\BH \> 6+\BC\ 8-10 $\Rightarrow$ 3\BS\ = 6+\BH\\
         3\BS \> 5\BS 5\BC\ 8-10\\
         3SA \> Nat\-\\
         3\BC \> Nat NF\\
@@ -3246,7 +3246,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BH \> Fit\\
         3\BS \> 6+\BS\ NF\-\\
         3\BC \> 5\BH 4\BC\ min\\
-        3\BD \> BIL 11+ no stop \BD\ o 5\BH 4\BC\ max o 5\BH 5\BC\ 13+ o 6+\BH\ 15+\\
+        3\BD \> BIL 11+ no stop \BD\ o 5\BH 4\BC\ max\+\\ o 5\BH 5\BC\ 13+ o 6+\BH\ 15+\-\\
         3\BS \> 4\BS\ min\+\\
         3SA \> Relay\+\\
         4X \> SGL \BC /\BD /22\\
@@ -3830,7 +3830,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BS \> Fit \BD\ no 5\BH \-\\
         3\BH \> Mono\+\\
         3\BS \> Wait\+\\
-        3SA \> 5332 no\+\\\-stop \BC \\
+        3SA \> 5332 no stop \BC \\
         4X \> 6+\BS\ 18+\\
         4\BH \> 6+\BS\ 15-17\-\-\\
         3\BS \> 4\BH\\
@@ -3842,7 +3842,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3SA \> Nat\-\\
         3\BC \> Mono colore imposto\\
         3\BD \> 5\BS 5\BD\ non min\\
-        3\BH \> 5\BS 4\BH\ non min o 6\BS 4\BH \\
+        3\BH \> 5\BS 4\BH\ non min o 10 carte \\
         3\BS \> Non minimo ma NF\\
         3SA \> 15+ probabile 4\BC \\
         4\BC \> 5\BS 5\BH\ 15+ FM \-\\
@@ -3863,7 +3863,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BD \> 5\BH 5\BD\ FM\\
         3\BH \> 6+\BH\ NF\\
         3\BS \> Fit\-\\
-        3\BC \> 6+\BS2-\BH\ 15+ o 5332\BH\ no stop \BC \\
+        3\BC \> 6+\BS2-\BH\ 15+ o 5332\BH\ no stop \BC\ 15+\\
         3\BD \> 5\BS 4\BD\ max o 5\BS 5\BD\ 13+\\
         3\BH \> 4\BH\ min\+\\
         3\BS \> Relay\+\\
@@ -3876,6 +3876,8 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BC\> 4\BS\ INV o ISL\\
         3/4X \> Vedi 1\BS -(Dbl)\-
     \end{bidtable}
+\vfill\null
+
     \begin{bidtable}
         1\BS-(2\BD)--\+\\
         Dbl\+\\
@@ -4537,7 +4539,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BD \> 5\BS 4m\+\\
         3\BH \> Relay senza 3\BS\+\\
         3\BS/SA \> 4\BD/\BC\-\\
-        3\BS \> Hx\BS\ Mano non interessante\\
+        3\BS \> Hx\BS\ mano non interessante\\
         4X \> Cue, 3\BS\ mano buona\-\\
         3\BH \> 5\BC 4\BS \\
         3\BS \> 6+\BS \\
@@ -4645,7 +4647,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BD \> 5+\BH\+\\
         3\BH\> Fit\+\\
         3SA\> Non minimo, forcing\\
-        Cue\> 6+\BH con almeno 2 ½CTRL\-\-\\
+        Cue\> 6+\BH\ con almeno 2 ½CTRL\-\-\\
     \end{bidtable}
     \begin{bidtable}
         2\BC-(3\BC)--\+\\
@@ -5155,13 +5157,12 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
 
     Esempi di apertura 3SA:
 
-    \begin{center}
-
-    \begin{array}{lcl}
-
         \gamefont{\rmfamily\normalsize}
         \otherfont{\rmfamily\normalsize}
         \bidderfont{\rmfamily\normalsize}
+    \begin{center}
+
+    \begin{array}{lcl}
         \hand!{KJxxxxx}{x}{x}{Kxxx} & & \hand!{KQJTxxx}{KQJ}{xx}{x}\\[2.5em]
         \hand!{QJTxxxx}{x}{AKxx}{Q} & & \hand!{\void}{AJT98xx}{Qxx}{Kxx}\\[2.5em]
         \hand!{AKJx}{QJ9xxxx}{x}{x} & & \hand!{AKQJxxx}{xx}{Jx}{Kx}\\[2.5em]
