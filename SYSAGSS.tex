@@ -5154,22 +5154,19 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
     \columnbreak
 
     Esempi di apertura 3SA:
+
     \begin{center}
+
+    \begin{array}{lcl}
 
         \gamefont{\rmfamily\normalsize}
         \otherfont{\rmfamily\normalsize}
         \bidderfont{\rmfamily\normalsize}
-        \hand!{KJxxxxx}{x}{x}{Kxxx}\qquad\qquad
-        \hand!{KQJTxxx}{KQJ}{xx}{x}\qquad\qquad\\
-        \smallskip
-        \hand!{QJTxxxx}{x}{AKxx}{Q}\qquad\qquad
-        \hand!{\void}{AJT98xx}{Qxx}{Kxx}\qquad\qquad\\
-        \smallskip
-        \hand!{AKJx}{QJ9xxxx}{x}{x}\qquad\qquad
-        \hand!{AKQJxxx}{xx}{Jx}{Kx}\qquad\qquad\\
-        \smallskip
-        \hand!{x}{KJT9xxx}{Kxx}{Ax}\qquad\qquad
-        \hand!{KQT9xxxx}{A9}{\void}{xxx}\qquad
+        \hand!{KJxxxxx}{x}{x}{Kxxx} & & \hand!{KQJTxxx}{KQJ}{xx}{x}\\[2.5em]
+        \hand!{QJTxxxx}{x}{AKxx}{Q} & & \hand!{\void}{AJT98xx}{Qxx}{Kxx}\\[2.5em]
+        \hand!{AKJx}{QJ9xxxx}{x}{x} & & \hand!{AKQJxxx}{xx}{Jx}{Kx}\\[2.5em]
+        \hand!{x}{KJT9xxx}{Kxx}{Ax} & & \hand!{KQT9xxxx}{A9}{\void}{xxx}
+    \end{array}
     \end{center}
 
 \end{multicols*}
@@ -5283,9 +5280,9 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BH \> 4\BS\ FM\\
         3\BS \> 4\BS\ INV\-\\
         3\BH \> Chiede fermo \BH\\
-        3\BS \> Rever\-\\
+        3\BS/SA \> 5+\BS\ 16+, no stop \BH / 5\BS\ 16+, stop \BH\-\\
         3\BH \> 5+\BS\ FM\\
-        3\BS \> 5+\BS\ INV\\
+        3\BS \> 5+\BS\ INV
     \end{bidtable}
     \begin{bidtable}
         (1\BS)-Dbl-(2\BS)--\+\\
@@ -5294,8 +5291,9 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BC/\BD\+\\
         3\BH \> 4\BH\ INV\\
         3\BS \> 4\BH\ FM\-\\
-        3\BH \> Rever\\
-        3\BS \> Chiede fermo \BS\-\\
+        3\BH \> 5\BH\ 16+, no stop \BS\ o 6+\BH\ 16+\\
+        3\BS \> Chiede fermo \BS\\
+        3SA \> 5\BH\ 16+, stop \BS\-\\
         3\BS \> 5+\BH\ FM
     \end{bidtable}
 
@@ -5468,8 +5466,8 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BC/\BD \> FM 4+ carte max\+\\
         3\BH \> 4+\BH \-\\
         3\BH \> Minimo passabile\\
-        3\BS \> 5+\BH\ no stop rever\\
-        3\BS \> 5+\BH\ stop rever\-
+        3\BS \> 5+\BH\ rever, no stop \BS\\
+        3SA \> 5+\BH\ rever, stop \BS\-
     \end{bidtable}
 
     Sequenze valide anche su (1\BH )-Dbl-(Pass)-2\BH.
@@ -5544,7 +5542,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
     \end{bidtable}
     Dopo essere passati di mano gli interventi cambiano (validi anche su (1\BC )-Pass-(2\BC )--):
     \begin{bidtable}
-        (2\BC)--\+\\
+        P-(P)-P-(2\BC)-- o equivalenti\+\\
         2SA \> 5+\BD 5+M\+\\
         3\BC \> Ask maggiore\\
         3\BD \> SO\-\\
@@ -5578,7 +5576,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BC/\BD\> IM naturale (anche se è colore apertore)\-\\
         (1\BC)-P-(1\BD)-1SA-(P)--\+\\
         2\BC\> Chiede 4e maggiori\\
-        2\BD/\BC\> $\Rightarrow$\BH/\BS\\
+        2\BD/\BH\> $\Rightarrow$\BH/\BS\\
         2SA\> Limite\-\\
         \\
         (1\BH)-P-(1\BS)-1SA-(P)--\+\\
