@@ -6,6 +6,8 @@
 \defaultfontfeatures{Ligatures=TeX}
 \usepackage[small,sf,bf]{titlesec}
 \usepackage[italian]{babel}
+\usepackage{booktabs}
+\usepackage{subcaption}
 
 
 \usepackage[margin=1.5cm]{geometry}
@@ -70,7 +72,13 @@
 %\definecolor{titlepagecolor}{RGB}{255,40,0}
 %{cmyk}{1,.60,0,.40}
 
-
+%Custom ref
+\makeatletter
+\newcommand{\customlabel}[2]{%
+   \protected@write \@auxout {}{\string \newlabel {#1}{{#2}{\thepage}{#2}{#1}{}} }%
+   \hypertarget{#1}{#2}
+}
+\makeatother
 %Titlepage
 
 \newenvironment{bidtable}
@@ -386,7 +394,7 @@ Nelle dichiarazioni che mostrano una tricolore a livello di 3\small{SA} o 4\BC ,
     Fissaggi in grandi transfer (4\BC =\BH , 4\BD =\BS\ e 4\BH =\BC ), su cui gradino max e colore min, da discutere.
 \end{varie}
 \setcounter{secnumdepth}{4}
-
+\newpage
 \subsection{Regole di competizione}
 
 L'obiettivo è giocare un bridge aggressivo in prima, soprattutto primi e terzi di mano. In queste situazioni, sopratutto se terzi di mano, i barrage e le sottoaperture sono molto libere (il che vuol dire anche con aperture piene, sopratutto se monocolori), e vanno rialzati solo con le debite cautele e con carte adatte (almeno fit 4° o fit 3° con SGL). Usiamo il 3\small{SA} nei minori e il DBL nei maggiori come una proposta di sacrificio, il rialzo diretto come push bid. Esempi:
@@ -423,11 +431,10 @@ L'obiettivo è giocare un bridge aggressivo in prima, soprattutto primi e terzi 
     }
 \end{center}
 
-\newpage
 Esempi di barrage:
-
+   \vspace{-.5cm}
 \begin{multicols}{4}
-    \vspace{-1cm}
+
 
     \gamefont{\rmfamily\normalsize}
     \otherfont{\rmfamily\normalsize}
@@ -439,14 +446,14 @@ Esempi di barrage:
         p & p & ? \\
     \end{bidding}
     \expertquiz*![\vulnertext]{2\BS}
-    \qquad
+
     \newgame\vulner[\eastwest]
     \hand!-{xxxx}{J9x}{x}{QJT94}
     \begin{bidding}-[c]
         p & p & ?\\
     \end{bidding}
     \expertquiz*![\vulnertext]{3\BC}
-    \qquad
+
     \newgame\vulner[\northsouth]
     \hand!-{KJTxx}{Axxx}{xxx}{x}
     \begin{bidding}-[c]
@@ -454,9 +461,6 @@ Esempi di barrage:
     \end{bidding}
     \expertquiz*![\vulnertext]{2\BS}
 
-    \gamefont{\rmfamily\normalsize}
-    \otherfont{\rmfamily\normalsize}
-    \bidderfont{\rmfamily\normalsize}
     \newgame\vulner[\northsouth]
     \hand!-{AKJ9xx}{QJx}{Qx}{xx}
     \begin{bidding}-[c]
@@ -474,18 +478,42 @@ Altri principi da seguire quando si compete:
     \item Quando gli avversari non hanno chiarito i loro colori competiamo in maniera più aggressiva
     \item Quando uno degli avversari non ha limitato la propria forza, competiamo in maniera più aggressiva
     \item Quando possediamo lunghezza nel colore dell'apertore o del rispondente competiamo in maniera più aggressiva. E.g.
-        \smallbreak
+        \medskip
+
+\begin{center}
         \begin{bidding}
             1C & 1H & 1S & ?\\
         \end{bidding}
         \qquad
         a)\hand!{x}{KJxx}{Qxxxx}{xxx}\qquad b)\hand!{Qxxxx}{KJxx}{x}{xxx}
+\end{center}
+
+\medskip
 
         La mano b) è un 3\BH\ migliore della mano a), con cui è meglio dichiarare 2\BH\ (è facile che se dichiariamo 3\BH\ spingiamo gli avversari ad un 4\BS\ tirato che probabilmente faranno).
-    \item Più lunghi siamo a \Sp o \He più siamo aggressivi. E.g.
-        %\BS Kxx\BH Q10xxxx\BD x\BC xxx è un 2\BH\ migliore di \BS x\BH Q10xxxx\BD Kxx\BC xxx
-        \hand!{Kxx}{QTxxxx}{x}{xxx} è un 2\BH\ migliore di \hand!{x}{QTxxxx}{Kxx}{xxx}
+    \item Più lunghi siamo a \Sp o \He più siamo aggressivi. E.g. la mano \ref{fig:mano1} è un 2\BH\ migliore della \ref{fig:mano2}
+
 \end{itemize}
+        %\BS Kxx\BH Q10xxxx\BD x\BC xxx è un 2\BH\ migliore di \BS x\BH Q10xxxx\BD Kxx\BC xxx
+
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}[b]{.4\textwidth}
+\centering
+
+       \hand!{Kxx}{QTxxxx}{x}{xxx}\label{Mano 1}
+
+\caption{Mano 1}\customlabel{fig:mano1}{mano 1}
+\end{subfigure}
+\begin{subfigure}[b]{.4\textwidth}
+\centering
+       \hand!{x}{QTxxxx}{Kxx}{xxx}
+
+\caption{Mano 2}\customlabel{fig:mano2}{mano 2}
+\end{subfigure}
+\end{figure}
+
 
 \subsection{Regole di controgioco}\label{egolecontrogioco}
 
@@ -708,6 +736,8 @@ Si indica gradimento o rifiuto:
         3\BH \> 6\BD 5\BH\ FM\\
         3\BS \> Fit sbilanciato INV\-
     \end{bidtable}
+\vfill\null
+\columnbreak
     \begin{bidtable}
         1\BC-1\BD-1\small{SA}\+\\
         2\BC \> Checkback invitante o S.O. a \BD , $\Rightarrow$ 2\BD \\
@@ -777,7 +807,11 @@ Si indica gradimento o rifiuto:
         3\BH \> 6+\BH\ ISL F\\
         3\BS \> Fit sbil poco inv\-\\
         1\small{SA} \> Bal 11-14 no 4M\\
-        2\BC \> Nat 6+\BC\ 11-14\\
+        2\BC \> Nat 6+\BC\ 11-14
+\end{bidtable}
+\vfill\null
+\columnbreak
+\begin{bidtable}
         2\BD \> Multirever: mono \BC\ 15+ o bico \BC \BD\ 16+\+\\
         2\BH \> S.O.\+\\
         2\BS \> Bico 18+\\
@@ -869,8 +903,8 @@ Si indica gradimento o rifiuto:
         2\small{SA} \> Bil con fermi\\
         3\BC \> 5332 max\\
         3\BD \> 4\BD \-\\
-        [2pt]2\BH \> S.O.\\
-        [2pt]2\BS \> 6\BH\ 4\BS\ FM\\
+        2\BH \> S.O.\\
+        2\BS \> 6\BH\ 4\BS\ FM\\
         2\small{SA} \> $\Rightarrow$ 3\BC \+\\
         3\BC\+\\
         3\BD \> 5\BD 5\BH\ FM\\
@@ -915,6 +949,8 @@ Si indica gradimento o rifiuto:
         3\BD \> 6\BC 4\BD\ max\\
         3\BH \> 3\BH\ max\-
     \end{bidtable}
+\vfill\null
+\columnbreak
 
     \subsection{Risposta 1\pdfs}
 
@@ -1081,9 +1117,21 @@ Si indica gradimento o rifiuto:
 \begin{bidtable}
     1\BC-2\BC\+\\
     2\BD \> Min sbilanciato\+\\
-    2\BH \> Relay, si rientra negli stessi sviluppi, ma dopo la dichiarazione di 2\BS\ 4\BC\ e 4\BD\ sono 6\BC 5\BH /\BS\ min\-\\
+    2\BH \> Relay, si rientra negli stessi sviluppi, ma dopo la dichiarazione di 2\BS\ 4\BC\ e 4\BD\ sono 6\BC 5\BH /\BS\ min\\
+    2\BS \> 6\BC4\BS/\BH, 5\BC4\BH/\BS\ o 4\BS4\BH1--0\BD4--5\BC\ (valido anche su 2\BH)\+\\
+    2SA \> Relay\+\\
+    3\BC/\BD \> 5\BC4\BH/\BS1\BD\\
+    3\BH/\BS \> 6\BC4\BH/\BS\\
+    3\small{SA} \> 4\BS4\BH1--0\BD4--5\BC\\
+    4\BC \> 4\BS4\BH1--0\BD4--5\BC forte\-\-\\
+    2\small{SA}\> 6\BC5\BH/\BS\ (valido anche su 2\BH)\+\\
+    3\BC \> Relay\+\\
+    3\BD \> 5\BH\\
+    3\BH \> 5\BS\-\-\\
+    3\BD \> 5\BC4\BS/\BH22  (valido anche su 2\BH)\\
+    3\BH/\BS \> 4\BH/\BS\ SGL\BS/\BH\  (valido anche su 2\BH)\-\\
     2\BH \> Min bilanciato oppure minori min/max\+\\
-    2\BS \> Relay\+\\
+    2\BS \> Relay (anche mani fuori relay, vedi 1\BC--2\BC--2\BD--2\BS)\+\\
     2\small{SA} \> Bil\+\\
     3\BC \> Relay\+\\
     3\BD \> 4\BC , su cui si dichiara nat\\
@@ -1130,7 +1178,7 @@ Si indica gradimento o rifiuto:
     3\small{SA} \> Tricolore SGL \BD\ 16--18, si veda \ref{fissaggi} per i fissaggi\\
     4\BC \> Tricolore SGL \BD\ 19+, si veda \ref{fissaggi} per i fissaggi\\
 \end{bidtable}
-\bigbreak
+
 Si rimanda \hyperref[fissaggi]{alla scheda} a pag. \pageref{fissaggi} per alternative ai fissaggi.
 
 Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
@@ -1284,7 +1332,6 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         2\BS \> FM con 4+\BD\ (se solo 4\BD\ garantisce un SGL)\\
         3\BC \> INV 4+\BD \-
     \end{bidtable}
-    \bigbreak
 
     \subsection{Risposta 1\pdfh}
 
@@ -1405,7 +1452,11 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         4\BC \> Max\+\\
         4\BD \> Fix \BD \\
         4X \> Cue fissa \BC \-\-\-\\
-        3\BD \> 6+\BD\ chiuse o semi 13--15\+\\
+    \end{bidtable}
+\vfill\null
+    \columnbreak
+    \begin{bidtable}
+        \>3\BD \> 6+\BD\ chiuse o semi 13--15\+\+\\
         3\BH \> 5+\BH\ FM\+\\
         3\BS \> Temo \BC \\
         4X \> Cue, fit \BH \-\\
@@ -1469,15 +1520,17 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BS \> 6+\BS\ FM\-\\
         3X \> GAR ridotta, \textbf{CON INVERSIONE}\+\\
         \textbf{DI SIGNIFICATO TRA 3\BS\ e 3\small{SA}}\-\-\\
-        2\small{SA} \> INV\+\\
-        3\BC \> 5\BD 5\BC\ min\\
-        3\BD \> 6\BD 4\BC\ min\\
+    \end{bidtable}
+\vfill\null
+    \columnbreak
+    \begin{bidtable}
+        \>\>2\small{SA} \> INV\+\+\+\\
+        3\BC/\BD \> 5\BD 5\BC/6\BD4\BC min\\
         3\BH \> 6\BD 4\BC\ max o trico 15-17\+\\
         3\BS \> 4\BH \+\\
         3\small{SA} \> 6\BD 4\BC\ fino a 16\\
         4m \> Cue 6\BD 4\BC\ 17+\\
-        4\BH \> Trico\-\\
-        3\small{SA} \> S.O.\-\\
+        4\BH \> Trico\-\-\\
         3\BS \> 3!S 13+ F\\
         3\small{SA} \> Max 5\BC\ 4\BD\ o 55 14-15\-\\
         3\BC/\BD \> INV\\
@@ -1500,7 +1553,6 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BH\> Max 4\BH\\
         3\BS\> Min 3\BS\\
         4X\> 3\BS\ max\-\-\\
-
         2\BH \> Multirever: mono \BD\ 15+ o bico \BD \BH\ 16+\+\\
         2\BS \> S.O.\+\\
         2\small{SA} \> 6+\BD\ max F\\
@@ -1542,7 +1594,6 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BS \> 4\BS\ sbil 13-14\\
         3\small{SA} \> Tricolore SGL \BC \-
     \end{bidtable}
-
     \subsection{Risposta di 1SA}
 
     \begin{bidtable}
@@ -1578,8 +1629,12 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BD \> 6\BD 4-5\BH\ 15+\\
         3\BH \> 6\BD 5\BH\ 11--12\\
         3\BS \> 6\BD 5\BH\ 13--14\\
-        3\small{SA} \> 4441\BC\ 18--21\-\\
-        2\small{SA} \> 6+\BC\ positivo\+\\
+        3\small{SA} \> 4441\BC\ 18--21
+    \end{bidtable}
+\vfill\null
+    \columnbreak
+    \begin{bidtable}
+        \>\>2\small{SA} \> 6+\BC\ positivo\+\+\+\\
         3\BC \> Relay\+\\
         3X \> Singoli a gradino\\
         3\small{SA} \> No SGL\\
@@ -1591,9 +1646,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3/4X \> Forcing\\
         3\BH/\BS \> Stop \BH \\
         4\BH \> 6\BD 5\BH \-\-\\
-    \end{bidtable}
-    \columnbreak
-    \begin{bidtable}
+
         \>2\BS \> Rever nat o 6\BD 5\BS\ 11+\+\+\\
         2\small{SA} \> Relay FM 8-11\+\\
         3\BC \> 5\BD 4\BS\ 15+\\
@@ -1626,9 +1679,10 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
 \begin{bidtable}
     1\BD-2\BC\+\\
     2\BD \> Min sbilanciato\+\\
-    2\BH \> Relay, si rientra negli stessi sviluppi, ma dopo la dichiarazione di 2\BS\ 4\BC\ e 4\BD\ sono 6\BD 5\BH /\BS\ min\-\\
+    2\BH \> Relay, si rientra negli stessi sviluppi, ma dopo la dichiarazione di 2\BS\ 4\BC\ e 4\BD\ sono 6\BD 5\BH /\BS\ min\\
+    \large{$\vdots$} \> Vedi fuori relay su 1\BC--2\BC\ (valido anche su 2\BH)\-\\[2pt]
     2\BH \> Min bilanciato oppure minori min/max\+\\
-    2\BS \> Relay\+\\
+    2\BS \> Relay (con mani fuori relay, vedi 1\BC--2\BC)\+\\
     2\small{SA} \> Bil\+\\
     3\BC \> Relay\+\\
     3\BD \> 4M\+\\
@@ -1683,7 +1737,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
     4\BC \> Tricolore SGL \BC\ 19+\+\\
     Si veda \ref{fissaggi} per i fissaggi\-\-
 \end{bidtable}
-\bigbreak
+
 Si rimanda \hyperref[fissaggi]{alla scheda} a pag. \pageref{fissaggi} per alternative ai fissaggi.
 
 Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
@@ -1754,9 +1808,6 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BC \> Limite 6\BS 5\BH \\
         3\BD \> 6\BH\ min\\
         4\BD \> Max 6+\BH \-\\
-    \end{bidtable}
-    \columnbreak
-    \begin{bidtable}
         2\small{SA} \> Relay\+\\
         3\BC \> 65 INV\+\\
         3\BD \> Relay\+\\
@@ -1766,7 +1817,10 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         4\BC \> ISL \BD \+\\
         4\BD \> H o xx\BD \-\\
         4\BD \> Dichiara il lungo\-\\
-        3\BD \> 6\BH \+\\
+    \end{bidtable}
+    \columnbreak
+    \begin{bidtable}
+        \>\>3\BD \> 6\BH \+\+\+\\
         3\BS \> ISL \BH \\
         4\BC \> ISL \BD \+\\
         4\BD \> H o xx\BD \-\-\\
@@ -1777,7 +1831,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         4\BH \> $\Rightarrow$ a 4\BS \+\\
         4\BS \> ISL min\-\-\-\\
         3\BS \> 5\BS 5\BH\ no stop \BC\ o ISL\\
-        3\small{SA} \> 5\BS 5\BH\ stop \BC \-\\
+        3\small{SA} \> 5\BS 5\BH\ stop \BC\\
         3\BC \> 5+\BD 5+\BC\ NF\+\\
         3\BD \> S.O.\\
         3\BH \> 6\BS 5\BH \\
@@ -1791,8 +1845,6 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BS \> S.O.\\
         4\BH \> IM+\\
         3/4X \> 5\BS 5\BH\ ISL\-\\
-        \\
-        \\
     \end{bidtable}
     Passati di mano la risposta di 2\BD\ mostra fit a \BD.
 \end{multicols}
@@ -2059,8 +2111,6 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BH/\BS \> Nat 7+ NF\\
         4\BC \> 5+\BS 5+\BH \-
     \end{bidtable}
-    \vfill\null
-    \columnbreak
     \begin{bidtable}
         1\BC-(2\BD)-- \> \> Multi\+\\
         Dbl \> TO, colore successivo NF\\
@@ -2076,6 +2126,8 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         2\BH/\BS \> Inv 5+\BC /\BD \\
         3\BC/\BD \> Competitivo\-
     \end{bidtable}
+    \vfill\null
+    \columnbreak
     \begin{bidtable}
         1\BC-(2\BH)--\+\\
         Dbl \> TO\+\\
@@ -2135,8 +2187,9 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         4\BC \> 5\BS 5\BH \\
         4\BD \> FM \BC \-
     \end{bidtable}
-
+\vfill\null
     \columnbreak
+
     \begin{bidtable}
         1\BC-(3\BS)--\+\\
         Dbl \> TO\+\\
@@ -2180,9 +2233,6 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
             3\BS\ (su 2\BH)\>\> Fix ISL\-\\
             3\BS/\BH \> 16+ 4\BH/\BS\ FM
         \end{bidtable}
-
-        \bigskip
-
         \begin{bidtable}
             1\BC/\BD-(P)-1\BD/\BH-(1\BH/\BS)--\+\\
             Dbl\> 15+ mano adatta (anche 4\BD\ 15-17 senza fermo)\\
@@ -2498,7 +2548,10 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BH \> 5\BS 3+\BH\ FM\\
         3\BS \> 6+\BS\ ISL F\-\\
         2\BC \> \hyperref[lauria]{Lauria},vedi \ref{lauria}\\
-        2\BD \> Nat 4+\BD\+\\
+\end{bidtable}
+\vfill\null
+\begin{bidtable}
+        \>2\BD \> Nat 4+\BD\+\+\\
         2\BS \> SO\\
         2\small{SA} \> INV, vedi sviluppi\+\\
         3\BC \> 10 carte o Tricolore max\+\\
@@ -2557,13 +2610,13 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         4\BC \> INV \BD\ o FM \BH \+\\
         4\BD \> Min\\
         4\BH \> Max\-\\
-        4\BD \> Forcing\-\-
+        4\BD \> Forcing
     \end{bidtable}
-
+\vfill\null
+\columnbreak
     \subsubsection{2\pdfc\ Lauria} \label{lauria}
-
-    1\BH-1\BS-2\BC
     \begin{bidtable}
+    1\BH-1\BS-2\BC\+\\
         2\BH \> SO\+\\
         2\BS \> 3\BS\ F1\+\\
         2\small{SA} \> Max\\
@@ -2593,7 +2646,6 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BD \> 4° colore\\
         3\BS \> 3\BS\ min\-\\
         2\small{SA} \> INV\\
-        3\BC \> SO\\
         3\BD \> 5\BS 332 ISL o no stop o 5\BS 4\BC\ FM+\\
         4\BC \> INV\-\\
         2\BS \> 18+ 3\BS\ o 54m22\+\\
@@ -2630,16 +2682,15 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BH \> Monocolore 3\BS\ 15-17\\
         3\BS \> 5\BH 4\BD 22\\
         3\small{SA} \> 5\BH 4\BC 22\\
-        4\BC \> 6\BH 5\BS\ 15-17\-\\
+        4\BC \> 6\BH 5\BS\ 15-17
     \end{bidtable}
-    \columnbreak
 
     \subsection{Risposta di 1SA}
 
     \subsubsection{Sviluppi}
 
     \begin{bidtable}
-        1\BH-1\small{SA}\\
+        1\BH-1\small{SA}\+\\
         2\BC\> Lauria, vedi sez \ref{Lauriadiff}\\
         2\BD \> 4+\BD \+\\
         2\BS \> 4° colore senza fermo \BS \\
@@ -2799,7 +2850,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
 
 \begin{multicols}{2}
     \begin{bidtable}
-        1\BH-2\BC\\
+        1\BH-2\BC\+\\
         2\BD \> Nat 4+\BD \+\\
         2\BH \> Fit \BH , relay\+\\
         2\BS \> Min\+\\
@@ -2851,7 +2902,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
     \end{bidtable}
     \columnbreak
     \begin{bidtable}
-        2\BH \> 4\BS \+\\
+        \>2\BH \> 4\BS \+\+\\
         2\BS \> Fit \BH , relay\+\\
         2\small{SA} \> Min\+\\
         3\BC \> Relay\+\\
@@ -2906,7 +2957,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
     \end{bidtable}
     \columnbreak
     \begin{bidtable}
-        2\BS \> Mono o bico a \BC\ min\+\\
+       \> 2\BS \> Mono o bico a \BC\ min\+\+\\
         2\small{SA} \> Relay\+\\
         3\BC \> 4\BC \+\\
         3\BD \> Relay\+\\
@@ -2933,7 +2984,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
     \end{bidtable}
     \columnbreak
     \begin{bidtable}
-        2\small{SA} \> Bil 15+ o 6\BH 4\BC\ 15+\+\\
+        \>2\small{SA} \> Bil 15+ o 6\BH 4\BC\ 15+\+\+\\
         3\BC \> Relay\+\\
         3\BD \> BIL Hxx\BC \+\\
         3\BH \> Fit\-\\
@@ -2987,7 +3038,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
 
 \begin{multicols}{2}
     \begin{bidtable}
-        1\BH-2\BD\\
+        1\BH-2\BD\+\\
         2\BH \> 4\BS \+\\
         2\BS \> Fit \BH , relay\+\\
         2\small{SA} \> Min\+\\
@@ -3041,7 +3092,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
     \end{bidtable}
     \columnbreak
     \begin{bidtable}
-        2\BS \> Mono o bico a \BC\ min\+\\
+        \>2\BS \> Mono o bico a \BC\ min\+\+\\
         2\small{SA} \> Relay\+\\
         3\BC \> 4\BC \+\\
         3\BD \> Relay\+\\
@@ -3127,7 +3178,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
     \end{bidtable}
     \columnbreak
     \begin{bidtable}
-        3\BC \> 6\BH\ belle o 7+\BH \+\\
+        \>3\BC \> 6\BH\ belle o 7+\BH \+\+\\
         3\BD \> 5\BS 5m\+\\
         3\BH \> Relay\+\\
         3\BS \> 5\BC \\
@@ -3196,7 +3247,10 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BS \> 5\BH 4\BS\ non min o 6\BH 4\BS \\
         3\small{SA} \> 15+ probabile 4\BC \\
         4\BC \> 6\BH 5\BS \-\\
-        2\BD \> 5+\BD\ F1G\\
+        2\BD \> 5+\BD\ F1G
+    \end{bidtable}
+\vfill\null
+\begin{bidtable}
         2\BS \> 5+\BS\ F1G\+\\
         2\small{SA} \> 5332 stop \BC\ o 3\BS \+\\
         3\BC \> Relay\+\\
@@ -3222,7 +3276,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         2\small{SA} \> 3\BH\ INV+\+\\
         3\BC \> 6+\BH\ 15+\-\\
         3\BC\> 4\BH\ INV o ISL\\
-        3/4X \> Vedi 1\BH -(Dbl)\-
+        3/4X \> Vedi 1\BH -(Dbl)
     \end{bidtable}
     \columnbreak
     \begin{bidtable}
@@ -4040,7 +4094,6 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         4X \> SGL F\-\-\\
         3\small{SA} \> SGL \BH \\
         4\BC/\BD \> 5\BC /\BD 4\BH 22 ISL\-\\
-        \\
         2\BS \> 4\BS \+\\
         2\small{SA} \> INV\\
         3\BC \> 5m422\+\\
@@ -4108,7 +4161,11 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BS \> 5\BH 5\BS\ ISL\\
         3\small{SA}\> COG \\
         4\BC/\BD\> 5\BH4+\BD/\BC1\BC/\BD, cerca altro fit\-\\
-        3\BC \> 4\BH\ max\+\\
+\end{bidtable}
+\vfill\null
+\columnbreak
+    \begin{bidtable}
+        \>3\BC \> 4\BH\ max\+\+\\
         3\BD \> $\Rightarrow$3\BH\+\\
         3\BH\+\\
         3\BS \> BIL ISL\\
@@ -4166,6 +4223,10 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         4X \> SGL ISL\-\\
         3\small{SA} \> COG\\
         4\BC/\BD \> 5\BC /\BD 4\BS\ bei colori ISL\-\-\\
+\end{bidtable}
+\vfill\null
+\columnbreak
+\begin{bidtable}
         2\BS \> 6+\BC \+\\
         2\small{SA} \> No fit\+\\
         3\BC \> SO\-\\
@@ -4499,17 +4560,17 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         4\small{SA} \>Ask Q o xx\-\-\\
         3\BH/\BS \> 5\BC /\BD 4\BH \\
         3\small{SA} \> 1\BS 4\BH 4\BD 4\BC\ 22+\\
-    \end{bidtable}
-    \vfill\null
-    \columnbreak
-    \begin{bidtable}
-        \>\>\>4\BC \> 6\BH 5\BS \+\+\+\+\\
+        4\BC \> 6\BH 5\BS\+\\
         4\BD \> $\Rightarrow$ 4\BH \+\\
         4\BH\+\\
         4\BS \> \BH\ ISL\-\-\\
         4\BH \> Meglio di 4\BS \\
         4\BS \> SO\-\-\\
-        2\small{SA} \> 6+\BH\ 0/1H (anche di più con la 64)\+\\
+\end{bidtable}
+\vfill\null
+\columnbreak
+\begin{bidtable}
+        \>\>2\small{SA} \> 6+\BH\ 0/1H (anche di più con la 64)\+\+\+\\
         3\BC \> Relay\+\\
         3\BD \> Mono\+\\
         3\BH \> Relay\+\\
@@ -4563,10 +4624,8 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         4\BH\+\\
         4\BS \> \BH\ ISL\-\-\\
         4\BH \> Meglio di 4\BS \\
-        4\BS \> SO
-    \end{bidtable}
-    \begin{bidtable}
-        \>\>3\BC \> 5+\BH \+\+\+\\
+        4\BS \> SO\-\-\\
+        3\BC \> 5+\BH \+\\
         3\BD \> 5\BS 4m\+\\
         3\BH \> Relay senza 3\BS\+\\
         3\BS/SA \> 4\BD/\BC\-\\
@@ -4575,8 +4634,12 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BH \> 5\BC 4\BS \\
         3\BS \> 6+\BS \\
         3\small{SA} \> 5\BD 4\BS \\
-        4\BC \> Fix \BH \-\\
-        3\BD \> 6+\BD \\
+        4\BC \> Fix \BH
+    \end{bidtable}
+\vfill\null
+\columnbreak
+    \begin{bidtable}
+        \>\>3\BD \> 6+\BD \+\+\\
         3\BH \> 6+\BC \\
         3\BS \> 4\BS\ no SGL\\
         3/4X \> 4\BS\ SGL in sottocolore\\
@@ -4760,7 +4823,11 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BH \> $\Rightarrow$ \BS\\
         3\BS \> 6+\BC\ ISL\\
         3\small{SA} \> 5\BC 4\BS \\
-        4\BC \> 5\BD 4\BS \-\-\\
+        4\BC \> 5\BD 4\BS
+    \end{bidtable}
+\vfill\null
+\columnbreak
+    \begin{bidtable}
         2\BS \> $\Rightarrow$ 2\small{SA} o 4+\BH \+\\
         2\small{SA}\+\\
         3\BC \> 5\BH 332 o 5+\BH 4+\BD\ o 6+\BD\ SGL \BC \+\\
@@ -4826,6 +4893,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
 
     \end{bidtable}
 \end{multicols}
+\newpage
 
 \subsection{Difese su apertura 2\pdfd}
 
