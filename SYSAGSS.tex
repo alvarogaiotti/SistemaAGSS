@@ -7,6 +7,8 @@
 \usepackage{newcent}
 \usepackage{helvet}
 \usepackage{graphicx}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
 \usepackage[colors=4A]{onedown}
 \usepackage{babel}
 \usepackage{enumerate}
@@ -33,7 +35,10 @@
 \definecolor{titlepagecolor}{HTML}{FF0800}
 \definecolor{MidnightBlue}{HTML}{191970}
 \definecolor{arancionediam}{HTML}{FFA500}
-%\definecolor{OliveGreen}{rgb}{0.33, 0.42, 0.18}
+\definecolor{OLIVEGREEN}{rgb}{0.33, 0.42, 0.18}
+\definecolor{MIDNIGHTBLUE}{HTML}{191970}
+\definecolor{REDORANGE}{HTML}{FF5349}
+\definecolor{RED2}{HTML}{EE0000}
 %\definecolor{titlepagecolor}{RGB}{255,40,0}
 %{cmyk}{1,.60,0,.40}
 
@@ -204,7 +209,6 @@
     \end{tikzpicture}%
 }
 \begin{document}
-\thispagestyle{empty}
 \vspace{5cm}
 \begin{titlepage}
     \noindent
@@ -2776,6 +2780,8 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BC \> 4\BH\ 6-9 no SGL\+\\
         3\BD \> Tentativo \-\\
         3\BD \> 4-5\BH\ mano migliore possibile\\
+        3\BS \> 4-5\BH\ un vuoto, debole\+\\
+        3SA \> Ask
     \end{bidtable}
     \bigbreak
 
@@ -4680,6 +4686,21 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BH \> 5+\BS, vedi sviluppi\\
         3\BS \> 6+\BC, 4\BC\ ask atout
     \end{bidtable}
+    \begin{bidtable}
+        2\BC-(3\BH/\BS)--\+\\
+        Dbl \> 4\BS/\BH
+    \end{bidtable}
+    \begin{bidtable}
+        2\BC-(4\BH/\BS)--\+\\
+        Pass \> Punitivo o molto debole
+    \end{bidtable}
+    \begin{bidtable}
+        2\BC-(P)-2\BD-(2\BH/\BS)--\+\\
+        Dbl \> 4\BS/\BH\ sbilanciata
+    \end{bidtable}
+
+    Dopo interferenza sull'apertura di 2\BC tutti i passi sono dell'apertore sono forcing e mostrano mano
+    che gradisce giocare, Dbl mostra una mano bilanciata (escluso il caso riportato).
 \end{multicols}
 
 \newpage
