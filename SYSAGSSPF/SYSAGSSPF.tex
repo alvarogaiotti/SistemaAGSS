@@ -757,6 +757,30 @@ Diamo PREFERENZA quando il compagno attacca con quello che potrebbe essere un on
 %We give SUIT PREFERENCE if dummy wins and we suspect that partner led a singleton.
 %We give SUIT PREFERENCE when partner leads what could be a short honor in our suit. For
 %example, West leads the CQ against 4H after you overcalled 3C:
+
+Esempio:
+
+\newgame
+
+\northhand{Ktx}{Jx}{KQJxx}{xxx}
+\easthand{AJ}{Q9x}{xx}{AKT942}
+%\easthand{JT985}{864}{QJ732}{-}
+%\westhand{K6}{T75}{K954}{QT94}
+\leftupper[2ex]{\contract:
+4\,\BH}{\declarer \south\,}{}
+\rightlower{\lead: Q\BC}{East ha dichiarato 3\BC}{}
+{\handskip{1em}\showAll*}
+\newgame
+
+Il 10\BC\ mostra l'A\BS, il 2\BC\ mostra l'A\BD, o, più realisticamente, il singolo, e una carta intermedia mostra nessuna preferenza.
+
+Il questo caso giochiamo il 10\BC\ e il compagno gioca \BS\ seguendo il nostro segnale:
+
+\begin{enumerate}[label={\alph*).}]
+\item Una cartina di picche è conto e mostra lunghezza a fiori, non nega ne garantisce onore
+\item Una carta alta a picche richiede il taglio a \BC\ e usualmente nega un onore a picche
+\end{enumerate}
+
 %Dummy
 %K10x
 %Jx
@@ -799,7 +823,49 @@ Se il compagno attacca con il K e poi gioca l'asso diamo la preferenza sulla sec
 
 Quando, contro un contratto a colore, il compagno vince la presa dell'attacco con il K e switcha in un altro colore NEGA il possesso del singolo
 in quel colore. Nonostante ciò, se il compagno vince con l'A, è possibile che possieda il singolo. Se si ha la certezza che il compagno ha AK
-nel colore di attacco, allora se prende con l'A e torna switcha garantisce il singolo.
+nel colore di attacco, allora se prende con l'A e switcha garantisce il singolo.
+
+\newgame
+\setdefaults{bidfirst=N}
+
+\begin{bidding}-
+& 1\BS & 2\BH & 2\BS\\
+3\BH & 3\BS & 4\BH & {$\dagger$}\\
+\end{bidding}
+\westhand{QT3}{3}{A5432}{7642}
+\northhand{764}{Q98}{KJ6}{QT95}
+\southhand{5}{KJT654}{QT8}{AKJ}
+\easthand{AKJ982}{A72}{97}{83}
+
+\rightupper[2ex]{\contract:
+4\,\BH}{\declarer \south}{}
+\rightlower{\quad\lead: 3\BS}{}{}
+{\handskip{1em}\showAll*+}
+
+Sull'attacco 3\BS\ Est prende con il K e torna \BD, negando il singolo nel colore. Diventa semplice per Ovest lisciare e prepararsi a dare il taglio quando il compagno lo fa entrare.
+
+Se la situazione è invece la seguente:
+
+\newgame
+\setdefaults{bidfirst=N}
+
+\begin{bidding}-
+& 1\BS & 2\BH & 2\BS\\
+3\BH & 3\BS & 4\BH &  {$\dagger$}\\
+\end{bidding}
+\westhand{QT3}{3}{A5432}{7642}
+\northhand{764}{Q98}{KJ6}{QT95}
+\southhand{5}{KJT654}{QT87}{AK}
+\easthand{AKJ982}{A72}{9}{J83}
+
+\rightupper[2ex]{\contract:
+4\,\BH}{\declarer \south}{}
+\rightlower{\quad\lead: 3\BS}{}{}
+{\handskip{1em}\showAll*+}
+
+Est prenderà con l'A\BS. Questo dovrebbe allertare Ovest che il successivo ritorni quadri potrebbe venire dal singolo (pur non essendo certi che Est possieda il K\BS, anche se le probabilità sono elevate) e non dal doppio.
+
+
 %When we lead a suit against a trump contract, if partner wins the King and switches to a side suit
 %he DENIES having a singleton in the new suit. However if partner wins the Ace and switches to a
 %side suit then it is possible he has a singleton. If you know that partner has ace-king in the suit you
