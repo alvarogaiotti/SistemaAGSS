@@ -34,8 +34,8 @@
 \providetranslation{Call-(ODw)}{Call}
 \providetranslation{call-(ODw)}{call}% = bid + pass, (re)double
 \providetranslation{-card-(ODw)}{-card}
-\providetranslation{contract-(ODw)}{contract}
-\providetranslation{Contract-(ODw)}{Contract}
+\providetranslation{contract-(ODw)}{contratto}
+\providetranslation{Contract-(ODw)}{Contratto}
 \providetranslation{contr-(ODw)}{contr}
 \providetranslation{Contr-(ODw)}{Contr}
 \providetranslation{Dbl-(ODw)}{Dbl}
