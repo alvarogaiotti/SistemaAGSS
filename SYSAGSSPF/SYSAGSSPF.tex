@@ -34,13 +34,13 @@
 
 \setmonofont{font-0648.ttf}
 
-\newcommand{\BS}{\small{\texttt{S}}}
+\newcommand{\BS}{\small{\texttt{S}}\xspace}
 
 % suits
-\newcommand{\BC}{\small{\texttt{c}}}
-\newcommand{\BD}{\small{\texttt{d}}}
-\newcommand{\BH}{\small{\texttt{h}}}
-\newcommand{\SA}{\small{SA}}
+\newcommand{\BC}{\small{\texttt{c}}\xspace}
+\newcommand{\BD}{\small{\texttt{d}}\xspace}
+\newcommand{\BH}{\small{\texttt{h}}\xspace}
+\newcommand{\SA}{\small{SA}\xspace}
 
 \renewrobustcmd{\Sp}{\texttt{S}}
 
@@ -2144,6 +2144,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3X \> GAR ridotta, \textbf{CON INVERSIONE}\+\\
         \textbf{DI SIGNIFICATO TRA 3\BS\ e 3\small{SA}}\-\-\\
     \end{bidtable}
+
     \vfill\null
     \columnbreak
     \begin{bidtable}
@@ -2254,6 +2255,7 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BS \> 6\BD 5\BH\ 13--14\\
         3\small{SA} \> 4441\BC\ 18--21
     \end{bidtable}
+
     \vfill\null
     \columnbreak
     \begin{bidtable}
@@ -2293,8 +2295,28 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
         3\BD \> 6+\BD\ belle 13--14\\
         3X \> Tricolori standard 18--21
     \end{bidtable}
-
 \end{multicols}
+
+    \begin{tcolorbox}[colframe=azzurro,title={Sviluppi particolari, validi in situazioni analoghe}]
+        Da passati di mano, la sequenza 1\BD--1\BS--2\BC--2\BH mostra mano max con 5+\BS, su cui gli sviluppi:
+        \begin{bidtable}
+           \> 2\BS \> Min, anche con 2\BS\\
+           \> 2\SA \> Rovescio, anche con 3\BS, sviluppi da sistema\\
+           \> 3\BC \> 5\BD5\BC o 5\BD4\BC3\BH1\BS min\\
+           \> 3\BD \> 6\BD4\BC min\\
+           \> 3\BH \> Max, no stop o 10 carte\+\+\\
+            3\BS\> Waiting \+\\
+            3\SA \> 5\BD4\BC3\BH1\BS\\
+            4\BC \> 5\BD5\BC\\
+            4\BD \> 6\BD4\BC\\
+            4\BH \> 6\BD5\BC\\
+            4\BS \> 5\BD4\BC22\-\-\-\\
+           \> 3\BS \> 3\BS max\\
+           \> 3\SA \> Stop, no 3\BS, max
+        \end{bidtable}
+    \end{tcolorbox}
+
+
 
 \newpage
 
@@ -6595,4 +6617,5 @@ Passati di mano la dichiarazione di 2\BC\ mostra 10-11 con 5\BC .
 %3\SA \> 5\BH2\BS33 18--19\\
 %4\BC/\BD\> 5\BH4\BS\ SGL \BC/\BD\ 15--17\\
 %\end{bidtable}
+
 \end{document}
